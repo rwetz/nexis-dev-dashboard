@@ -1,0 +1,5 @@
+#!/bin/sh
+# Vite doesn't typecheck, so type-only breakage (e.g. importing a non-exported
+# binding) only surfaces as a runtime white screen. Catch it before commit.
+echo "pre-commit: tsc --noEmit"
+cd "$(git rev-parse --show-toplevel)" && pnpm typecheck
