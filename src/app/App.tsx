@@ -47,18 +47,6 @@ export default function App() {
 function Shell() {
   const refresh = useReposStore((s) => s.refresh);
 
-  // TEMP crash test — auto-toggle the theme 6× to exercise the crossfade.
-  const { setMode } = useTheme();
-  useEffect(() => {
-    let i = 0;
-    const t = setInterval(() => {
-      i++;
-      setMode(i % 2 ? "light" : "dark");
-      if (i >= 6) clearInterval(t);
-    }, 1500);
-    return () => clearInterval(t);
-  }, [setMode]);
-
   useEffect(() => {
     void refresh();
   }, [refresh]);
@@ -90,7 +78,7 @@ function Header() {
         IS_MAC ? "pl-20" : "pl-3",
       )}
     >
-      <DevDashLogo className="pointer-events-none size-5" />
+      <DevDashLogo className="pointer-events-none size-6" />
       <span className="pointer-events-none font-heading text-sm font-semibold">
         Dev Dashboard
       </span>

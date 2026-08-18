@@ -1,11 +1,87 @@
-<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Dev Dashboard">
-  <!-- Nexis-family mark: 12px-radius tile, flat geometric marks.
-       Three repo rows with status dots — clean / dirty / ahead. -->
-  <rect width="48" height="48" rx="12" fill="#14171A"/>
-  <circle cx="13" cy="15" r="3" fill="#34D399"/>
-  <rect x="20" y="12.5" width="17" height="5" rx="2.5" fill="white"/>
-  <circle cx="13" cy="24" r="3" fill="#FBBF24"/>
-  <rect x="20" y="21.5" width="12" height="5" rx="2.5" fill="white"/>
-  <circle cx="13" cy="33" r="3" fill="#38BDF8"/>
-  <rect x="20" y="30.5" width="15" height="5" rx="2.5" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e1e24" />
+      <stop offset="100%" stop-color="#121216" />
+    </linearGradient>
+    
+    <!-- Red Gradient (Deletions) -->
+    <linearGradient id="red-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff6b6b" />
+      <stop offset="100%" stop-color="#c92a2a" />
+    </linearGradient>
+    
+    <!-- Green Gradient (Additions) -->
+    <linearGradient id="green-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#69db7c" />
+      <stop offset="100%" stop-color="#2b8a3e" />
+    </linearGradient>
+
+    <!-- Dev Dashboard Grid Pattern -->
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#ffffff" stroke-width="1" stroke-opacity="0.03" />
+    </pattern>
+
+    <!-- Drop Shadow for the Interlocking 3D Effect -->
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="6" stdDeviation="5" flood-color="#000000" flood-opacity="0.75" />
+    </filter>
+
+    <!-- Clip Path for Perfect Celtic Weaving -->
+    <clipPath id="overlap-clip">
+      <path d="M -150 -150 L 150 -150 L 0 0 Z M -150 150 L 150 150 L 0 0 Z" />
+    </clipPath>
+  </defs>
+
+  <!-- App Icon Squircle Base -->
+  <rect x="12" y="12" width="232" height="232" rx="52" fill="url(#bg-grad)" stroke="#2d2d34" stroke-width="2" />
+  <rect x="12" y="12" width="232" height="232" rx="52" fill="url(#grid)" />
+
+  <g transform="translate(128, 128)">
+    <g transform="scale(0.9)">
+      
+      <!-- Interlocking Knot Structure -->
+      <g filter="url(#shadow)">
+        <!-- Red Pill Base (Deletions) -->
+        <g transform="rotate(-45)">
+          <rect x="-36" y="-80" width="72" height="160" rx="36" fill="none" stroke="url(#red-grad)" stroke-width="24" />
+        </g>
+        
+        <!-- Green Pill Base (Additions) -->
+        <g transform="rotate(45)">
+          <rect x="-36" y="-80" width="72" height="160" rx="36" fill="none" stroke="url(#green-grad)" stroke-width="24" />
+        </g>
+        
+        <!-- Clipped Red Pill (Generates the Over-Under Weave) -->
+        <g clip-path="url(#overlap-clip)">
+          <g transform="rotate(-45)">
+            <rect x="-36" y="-80" width="72" height="160" rx="36" fill="none" stroke="url(#red-grad)" stroke-width="24" />
+          </g>
+        </g>
+      </g>
+
+      <!-- Embedded Repo Indicators -->
+      <!-- Additions (Inside Green Loops) -->
+      <g transform="rotate(45)" stroke="#ffffff" stroke-width="4" stroke-linecap="round">
+        <!-- Top Plus -->
+        <path d="M -10 -44 L 10 -44 M 0 -54 L 0 -34" />
+        <!-- Bottom Plus -->
+        <path d="M -10 44 L 10 44 M 0 34 L 0 54" />
+      </g>
+
+      <!-- Deletions (Inside Red Loops) -->
+      <g transform="rotate(-45)" stroke="#ffffff" stroke-width="4" stroke-linecap="round">
+        <!-- Top Minus -->
+        <path d="M -10 -44 L 10 -44" />
+        <!-- Bottom Minus -->
+        <path d="M -10 44 L 10 44" />
+      </g>
+
+      <!-- Central Git/Repo Hub -->
+      <circle cx="0" cy="0" r="14" fill="#1e1e24" stroke="#ffffff" stroke-width="4" />
+      <circle cx="0" cy="0" r="5" fill="#ffffff" />
+      
+    </g>
+  </g>
 </svg>
