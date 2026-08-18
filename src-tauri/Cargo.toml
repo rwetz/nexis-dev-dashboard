@@ -1,6 +1,6 @@
 [package]
 name = "nexis-dev-dashboard"
-version = "0.1.1"
+version = "0.1.2"
 description = "Multi-repo git status dashboard — branch, dirty state, ahead/behind, last commit for every local repo at a glance."
 authors = ["Ryan Wetzstein"]
 edition = "2021"
